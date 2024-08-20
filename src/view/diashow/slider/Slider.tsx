@@ -8,9 +8,7 @@ interface ImageSliderProps {
 const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval }) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [isPaused, setIsPaused] = useState<boolean>(true);
-
-    console.log(images)
-
+    
     useEffect(() => {
         if (isPaused) return; // Keine Aktualisierung, wenn pausiert
 
