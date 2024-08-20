@@ -44,3 +44,15 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Openstreet Map
+
+Editor Link:  https://umap.openstreetmap.fr/de/map/anonymous-edit/1103021:4VfRfpCo5Hr7NbTFnWyyS63icf_-fcQe6sH88z3QOcM
+Über den Link kann die Karte angepasst werden und somit die neuen Bilddaten hinterlegt werden.
+
+Damit die Koordinaten hinzugefügt werden können, sollte man folgendes beachten:
+- Tabelle aus Vialytics exportieren
+- Koordinaten Spalte anpassen: Überschrift zu "lat; lon" und alle Kommas durch Semikolons ersetzen
+- Adressspalte anpassen: Komma zwischen Straßenname und Hausnummer entfernen
+- es können etwa 20000 Koordinaten auf einmal importiert werden -> csvTeiler nutzen
+- beim Daten importieren darauf achten: das die anderen Elemente ausgeblendet sind und alle Elementeinstellungen korrekt vorgenommen worden sind
