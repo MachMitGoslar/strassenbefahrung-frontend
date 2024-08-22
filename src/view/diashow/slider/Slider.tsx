@@ -13,6 +13,9 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval }) => {
     const [isPaused, setIsPaused] = useState<boolean>(true);
     const [infoOpen, setInfoOpen]=useState(false);
     const [pictureInfo, setPictureInfo]=useState([]);
+    const [rotate, setRotate]=useState(false);
+
+    const baseUrl: string= "https://www.google.com/maps?q=";
 
     // Verwenden der useLocation-Hook, um die aktuelle URL zu bekommen
     const location = useLocation();
@@ -66,12 +69,22 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval }) => {
         setIsPaused(true);
     }
 
+    const handleImageDimension = (e: React.SyntheticEvent<HTMLImageElement>) => {
+        const { naturalWidth, naturalHeight } = e.currentTarget;
+        if(naturalWidth<naturalHeight){
+            setRotate(true);
+        }else setRotate(false);
+    };
+
+
 
     return (
         <div style={{justifyContent: "center", display: "flex"}}>
             <button title={"Info zum aktuellen Bild"} className={"image-button"} onClick={handleInfoClick}>Info</button>
             <div className="image-slider">
-                <img style={{height: window.innerHeight * 0.9}} src={images[currentIndex]}/>
+                <img onLoad={handleImageDimension}
+                    style={{height: window.innerHeight * 0.9, transform: rotate ? 'rotate(90deg)' : 'none',
+                        transformOrigin: 'center center',}} src={images[currentIndex]}/>
             </div>
             <div style={{position: "absolute", bottom: "5px"}} className="controls">
                 <button title="Zurück zum Start"
@@ -113,10 +126,10 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval }) => {
                         Längengrad:            {pictureInfo[4]} <br/>
                         Breitengrad:           {pictureInfo[5]} <br/>
                         Straßenklassifizierung: {pictureInfo[7]} <br/>
-                        Oberflächentyp:         {pictureInfo[8]} <br/>
-                        Gesamtbewertung:        ~{pictureInfo[10]}
+                        <br/>
+                        <a href={baseUrl + pictureInfo[5] + pictureInfo[4]} target="_blank" rel="noopener noreferrer">Maps</a>
                     </text>
-                        </pre>
+                    </pre>
                 </div>
             }
         </div>
