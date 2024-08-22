@@ -107,11 +107,16 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval }) => {
             </div>
             {infoOpen &&
                 <div className={"info-box"}>
+                    <pre>
                     <text>
-                        Adresse: {pictureInfo[1]}, {pictureInfo[2]} {pictureInfo[3]} <br/>
-                        Längengrad: {pictureInfo[4]} <br/>
-                        Breitengrad: {pictureInfo[5]}
+                        Adresse:                {pictureInfo[1]}, {pictureInfo[2]} {pictureInfo[3]} <br/>
+                        Längengrad:            {pictureInfo[4]} <br/>
+                        Breitengrad:           {pictureInfo[5]} <br/>
+                        Straßenklassifizierung: {pictureInfo[7]} <br/>
+                        Oberflächentyp:         {pictureInfo[8]} <br/>
+                        Gesamtbewertung:        ~{pictureInfo[10]}
                     </text>
+                        </pre>
                 </div>
             }
         </div>
