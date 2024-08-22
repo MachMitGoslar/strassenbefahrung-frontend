@@ -1,5 +1,5 @@
 const getInfo = async (ID:number, selectedMap:String) => {
-    const url = `${process.env.REACT_APP_BACKEND_URL}/getPictures?id=${ID}&selected=${selectedMap}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/getInfo?id=${ID}&selected=${selectedMap}`;
     console.log(`Requesting pictures from: ${url}`);
 
     try {

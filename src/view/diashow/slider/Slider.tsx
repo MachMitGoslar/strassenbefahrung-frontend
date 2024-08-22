@@ -58,7 +58,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval }) => {
 
     function handleInfoClick(){
         // @ts-ignore
-        getInfo(+(queryParams.get('id')+currentIndex),queryParams.get('selected')).then(response=>{
+        getInfo((+queryParams.get('id')+currentIndex),queryParams.get('selected')).then(response=>{
             setPictureInfo(response);
             console.log(response);
         }) 
