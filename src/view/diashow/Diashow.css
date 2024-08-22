@@ -1,5 +1,9 @@
 .image{
 justify-content: center;
 display: flex;
+top: 0;
+}
 
+.image button:hover{
+    cursor: pointer;
 }

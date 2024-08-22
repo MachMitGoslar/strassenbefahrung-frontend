@@ -30,7 +30,11 @@ export default function Diashow(){
         console.log("testen");
     }, [pictures]);
 
+   
+
     return (
-        <ImageSlider images={pictures} interval={500}/>
+        <div className={"image"}>
+            <ImageSlider images={pictures} interval={500}/>
+        </div>
             );
 }

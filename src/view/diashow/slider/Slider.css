@@ -3,3 +3,29 @@
     display: flex;
 }
 
+.image-button{
+    justify-content: center;
+    top: 10px;
+    left: 10px;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.controls button{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border: 0
+}
+
+.info-box{
+    position: absolute;
+    left: 30px;
+    top: 70px;
+    background-color: lightgrey;
+    padding: 5px;
+    border-radius: 10px;
+}
+
