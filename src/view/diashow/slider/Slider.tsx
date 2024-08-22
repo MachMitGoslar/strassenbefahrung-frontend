@@ -107,7 +107,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval }) => {
             </div>
             {infoOpen &&
                 <div className={"info-box"}>
-                    <header>Adresse</header>
+                    <text>
+                        Adresse: {pictureInfo[1]}, {pictureInfo[2]} {pictureInfo[3]} <br/>
+                        Längengrad: {pictureInfo[4]} <br/>
+                        Breitengrad: {pictureInfo[5]}
+                    </text>
                 </div>
             }
         </div>

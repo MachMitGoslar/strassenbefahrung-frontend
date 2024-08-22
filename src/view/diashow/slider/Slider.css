@@ -24,8 +24,9 @@
     position: absolute;
     left: 30px;
     top: 70px;
-    background-color: lightgrey;
+    background-color: rgba(236, 236, 236, 75%);
     padding: 5px;
     border-radius: 10px;
 }
+
 
