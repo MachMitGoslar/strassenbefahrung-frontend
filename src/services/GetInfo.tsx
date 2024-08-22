@@ -1,6 +1,6 @@
 const getInfo = async (link:String, selectedMap:String) => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/getInfo?url=${link}&selected=${selectedMap}`;
-    console.log(`Requesting pictures from: ${url}`);
+    console.log(`Requesting picture Info from: ${url}`);
 
     try {
         const response = await fetch(url, {
