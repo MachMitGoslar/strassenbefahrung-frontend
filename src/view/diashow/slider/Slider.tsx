@@ -62,8 +62,9 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval }) => {
     function handleInfoClick(){
         // @ts-ignore
         getInfo(images[currentIndex],queryParams.get('selected')).then(response=>{
-            setPictureInfo(response);
-            console.log(response);
+            let anzahlZeichen= response[1].trim().length-8;
+            console.log(response[1].trim().substring(0,anzahlZeichen))
+            setPictureInfo(response[1].trim().substring(0,anzahlZeichen));
         }) 
         setInfoOpen(!infoOpen);
         setIsPaused(true);
@@ -122,12 +123,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval }) => {
                 <div className={"info-box"}>
                     <pre>
                     <text>
-                        Adresse:                {pictureInfo[1]}, {pictureInfo[2]} {pictureInfo[3]} <br/>
-                        Längengrad:            {pictureInfo[4]} <br/>
-                        Breitengrad:           {pictureInfo[5]} <br/>
-                        Straßenklassifizierung: {pictureInfo[7]} <br/>
+                        Adresse: {pictureInfo} <br/>
                         <br/>
-                        <a href={baseUrl + pictureInfo[5] + pictureInfo[4]} target="_blank" rel="noopener noreferrer">Maps</a>
                     </text>
                     </pre>
                 </div>
