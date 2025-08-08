@@ -1,7 +1,7 @@
 .image{
-justify-content: center;
-display: flex;
-top: 0;
+    width: calc(100% - 40px);
+    max-width: calc(100% - 40px);
+    padding: 0 20px;
 }
 
 .image button:hover{

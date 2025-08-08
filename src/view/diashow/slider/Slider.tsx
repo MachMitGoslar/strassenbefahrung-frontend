@@ -80,14 +80,18 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval }) => {
 
 
     return (
-        <div style={{justifyContent: "center", display: "flex"}}>
+        <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
             <button title={"Info zum aktuellen Bild"} className={"image-button"} onClick={handleInfoClick}>Info</button>
             <div className="image-slider">
                 <img onLoad={handleImageDimension}
-                    style={{height: window.innerHeight * 0.9, transform: rotate ? 'rotate(90deg)' : 'none',
+                    style={{//height: window.innerHeight * 0.9
+                        width: '100%',
+                          transform: rotate ? 'rotate(90deg)' : 'none',
                         transformOrigin: 'center center',}} src={images[currentIndex]}/>
             </div>
-            <div style={{position: "absolute", bottom: "5px"}} className="controls">
+            <div className={'controls-overlay'}>
+            <div className={'controls-wrapper'}>
+            <div className="controls">
                 <button title="Zurück zum Start"
                         onClick={handleResetClick}>
                     <img
@@ -118,6 +122,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval }) => {
                     <img width="50" height="50" src="https://img.icons8.com/ios/50/circled-chevron-right--v1.png"
                          alt="circled-chevron-right--v1"/>
                 </button>
+            </div>
+            </div>
             </div>
             {infoOpen &&
                 <div className={"info-box"}>
