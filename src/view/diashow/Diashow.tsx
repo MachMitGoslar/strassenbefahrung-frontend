@@ -6,6 +6,7 @@ import ImageSlider from "./slider/Slider";
 
 export default function Diashow(){
     const [pictures, setPictures]=useState([]);
+    const [blobUrls, setBlobUrls] = useState<string[]>([]);
 
     // Verwenden der useLocation-Hook, um die aktuelle URL zu bekommen
     const location = useLocation();
@@ -27,14 +28,35 @@ export default function Diashow(){
     }, [id, selectedMap]);
 
     useEffect(() => {
-        console.log("testen");
+        return () => {
+            blobUrls.forEach(url => URL.revokeObjectURL(url));
+        };
+    }, [blobUrls]);
+
+
+
+    useEffect(() => {
+        async function loadBlobs() {
+            const blobs = await Promise.all(
+                pictures.map(async (url) => {
+                    const res = await fetch(url);
+                    const blob = await res.blob();
+                    return URL.createObjectURL(blob); // Erzeugt 'blob:https://localhost/...'
+                })
+            );
+            setBlobUrls(blobs);
+        }
+
+        if (pictures.length > 0) {
+            loadBlobs();
+        }
     }, [pictures]);
 
-   
+
 
     return (
         <div className={"image"}>
-            <ImageSlider images={pictures} interval={500}/>
+            <ImageSlider images={pictures} interval={500} />
         </div>
             );
 }

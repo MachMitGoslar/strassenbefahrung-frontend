@@ -33,6 +33,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval }) => {
         return () => clearInterval(timer);
     }, [images.length, interval, isPaused]);
 
+
     const handlePauseClick = () => {
         setIsPaused(true);
     };
